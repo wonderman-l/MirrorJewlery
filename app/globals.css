@@ -1,0 +1,392 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root,
+  [data-theme="default"] {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+
+    --radius: 0.5rem;
+
+    /* Theme specific */
+    --theme-background: white;
+    --theme-gradient-start: 210 40% 98%;
+    --theme-gradient-end: 210 40% 96%;
+    --theme-card-bg: white;
+    --theme-card-border: 214.3 31.8% 91.4%;
+    --theme-header-bg: white;
+    --theme-header-solid-bg: #ffffff;
+    --theme-footer-bg: white;
+    --theme-section-alt-bg: 210 40% 96.1%;
+    --theme-highlight: 222.2 47.4% 11.2%;
+  }
+
+  [data-theme="purple"] {
+    --background: 270 50% 99%;
+    --foreground: 270 60% 10%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 270 60% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 270 60% 10%;
+
+    --primary: 270 65% 40%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 270 30% 94%;
+    --secondary-foreground: 270 65% 40%;
+
+    --muted: 270 30% 94%;
+    --muted-foreground: 270 20% 40%;
+
+    --accent: 270 30% 94%;
+    --accent-foreground: 270 65% 40%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 270 30% 90%;
+    --input: 270 30% 90%;
+    --ring: 270 65% 40%;
+
+    --radius: 0.75rem;
+
+    /* Theme specific */
+    --theme-background: linear-gradient(to bottom, hsl(270, 50%, 99%), hsl(270, 30%, 95%));
+    --theme-gradient-start: 270 50% 99%;
+    --theme-gradient-end: 270 30% 95%;
+    --theme-card-bg: white;
+    --theme-card-border: 270 30% 90%;
+    --theme-header-bg: rgba(255, 255, 255, 0.8);
+    --theme-header-solid-bg: #f9f5ff;
+    --theme-footer-bg: rgba(255, 255, 255, 0.8);
+    --theme-section-alt-bg: 270 30% 94%;
+    --theme-highlight: 270 65% 40%;
+  }
+
+  [data-theme="blue"] {
+    --background: 210 100% 99%;
+    --foreground: 210 100% 10%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 210 100% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 210 100% 10%;
+
+    --primary: 210 100% 50%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 210 50% 94%;
+    --secondary-foreground: 210 100% 50%;
+
+    --muted: 210 50% 94%;
+    --muted-foreground: 210 50% 40%;
+
+    --accent: 210 50% 94%;
+    --accent-foreground: 210 100% 50%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 210 50% 90%;
+    --input: 210 50% 90%;
+    --ring: 210 100% 50%;
+
+    --radius: 0.5rem;
+
+    /* Theme specific */
+    --theme-background: linear-gradient(135deg, hsl(210, 100%, 99%), hsl(200, 80%, 95%));
+    --theme-gradient-start: 210 100% 99%;
+    --theme-gradient-end: 200 80% 95%;
+    --theme-card-bg: rgba(255, 255, 255, 0.9);
+    --theme-card-border: 210 50% 90%;
+    --theme-header-bg: rgba(255, 255, 255, 0.85);
+    --theme-header-solid-bg: #f0f9ff;
+    --theme-footer-bg: rgba(255, 255, 255, 0.85);
+    --theme-section-alt-bg: 210 50% 94%;
+    --theme-highlight: 210 100% 50%;
+  }
+
+  [data-theme="green"] {
+    --background: 150 80% 99%;
+    --foreground: 150 80% 10%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 150 80% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 150 80% 10%;
+
+    --primary: 150 80% 40%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 150 40% 94%;
+    --secondary-foreground: 150 80% 40%;
+
+    --muted: 150 40% 94%;
+    --muted-foreground: 150 30% 40%;
+
+    --accent: 150 40% 94%;
+    --accent-foreground: 150 80% 40%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 150 40% 90%;
+    --input: 150 40% 90%;
+    --ring: 150 80% 40%;
+
+    --radius: 0.5rem;
+
+    /* Theme specific */
+    --theme-background: linear-gradient(to bottom right, hsl(150, 80%, 99%), hsl(160, 70%, 95%));
+    --theme-gradient-start: 150 80% 99%;
+    --theme-gradient-end: 160 70% 95%;
+    --theme-card-bg: rgba(255, 255, 255, 0.9);
+    --theme-card-border: 150 40% 90%;
+    --theme-header-bg: rgba(255, 255, 255, 0.85);
+    --theme-header-solid-bg: #f0fff4;
+    --theme-footer-bg: rgba(255, 255, 255, 0.85);
+    --theme-section-alt-bg: 150 40% 94%;
+    --theme-highlight: 150 80% 40%;
+  }
+
+  [data-theme="pink"] {
+    --background: 330 100% 99%;
+    --foreground: 330 80% 10%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 330 80% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 330 80% 10%;
+
+    --primary: 330 80% 50%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 330 50% 94%;
+    --secondary-foreground: 330 80% 50%;
+
+    --muted: 330 50% 94%;
+    --muted-foreground: 330 30% 40%;
+
+    --accent: 330 50% 94%;
+    --accent-foreground: 330 80% 50%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 330 50% 90%;
+    --input: 330 50% 90%;
+    --ring: 330 80% 50%;
+
+    --radius: 0.5rem;
+
+    /* Theme specific */
+    --theme-background: linear-gradient(to bottom, hsl(330, 100%, 99%), hsl(340, 80%, 95%));
+    --theme-gradient-start: 330 100% 99%;
+    --theme-gradient-end: 340 80% 95%;
+    --theme-card-bg: rgba(255, 255, 255, 0.9);
+    --theme-card-border: 330 50% 90%;
+    --theme-header-bg: rgba(255, 255, 255, 0.85);
+    --theme-header-solid-bg: #fff0f6;
+    --theme-footer-bg: rgba(255, 255, 255, 0.85);
+    --theme-section-alt-bg: 330 50% 94%;
+    --theme-highlight: 330 80% 50%;
+  }
+
+  [data-theme="dark"] {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+
+    /* Theme specific */
+    --theme-background: linear-gradient(to bottom, hsl(222.2, 84%, 4.9%), hsl(222.2, 84%, 8%));
+    --theme-gradient-start: 222.2 84% 4.9%;
+    --theme-gradient-end: 222.2 84% 8%;
+    --theme-card-bg: hsl(222.2, 84%, 6%);
+    --theme-card-border: 217.2 32.6% 17.5%;
+    --theme-header-bg: rgba(10, 10, 15, 0.8);
+    --theme-header-solid-bg: #0f1116;
+    --theme-footer-bg: rgba(10, 10, 15, 0.8);
+    --theme-section-alt-bg: 217.2 32.6% 12%;
+    --theme-highlight: 210 40% 90%;
+  }
+}
+
+@layer utilities {
+  .theme-background {
+    background: var(--theme-background);
+  }
+
+  .theme-card {
+    background-color: hsl(var(--theme-card-bg));
+    border-color: hsl(var(--theme-card-border));
+  }
+
+  .theme-header {
+    background-color: var(--theme-header-solid-bg);
+  }
+
+  .theme-footer {
+    background-color: hsl(var(--theme-footer-bg));
+    backdrop-filter: blur(8px);
+  }
+
+  .theme-section-alt {
+    background-color: hsl(var(--theme-section-alt-bg));
+  }
+
+  .theme-highlight {
+    color: hsl(var(--theme-highlight));
+  }
+
+  /* 添加旋转动画 */
+  .animate-spin-slow {
+    animation: spin 15s linear infinite;
+  }
+
+  .animate-reverse-spin {
+    animation: spin 20s linear infinite reverse;
+  }
+
+  .animate-pulse-slow {
+    animation: pulse 3s ease-in-out infinite;
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  /* 添加闪烁动画类 */
+  .animate-twinkle {
+    animation: twinkle 3s ease-in-out infinite;
+  }
+
+  .animate-sparkle {
+    animation: sparkle 4s ease-in-out infinite;
+  }
+}
+
+/* 添加关键帧动画 */
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+/* 添加闪烁动画关键帧 */
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 1;
+    filter: brightness(1);
+  }
+  50% {
+    opacity: 0.7;
+    filter: brightness(1.5);
+  }
+}
+
+@keyframes sparkle {
+  0%,
+  100% {
+    filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.7));
+  }
+  25% {
+    filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.9));
+  }
+  50% {
+    filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.7));
+  }
+  75% {
+    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.8));
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}

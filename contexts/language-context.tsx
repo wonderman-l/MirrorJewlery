@@ -84,8 +84,12 @@ const translations: Translations = {
     "tryon.modelUploaded": "Model Image Uploaded",
     "tryon.modelUploadedDesc": "The model reference image has been successfully uploaded",
     "tryon.downloadSuccess": "Download Successful",
-    "tryon.downloadSuccessDesc": "Image has been successfully downloaded to your device",
+    "tryon.downloadSuccessDesc": "Image has been saved to your device",
     "tryon.originalMaterials": "Original Materials",
+    "tryon.waitingForUpload": "Waiting for Upload",
+    "tryon.uploadPrompt": "Please upload jewelry and face images to generate try-on effect",
+    "tryon.readyToGenerate": "Ready to Generate",
+    "tryon.clickGenerate": "Click the generate button to start creating try-on effect",
 
     // Theme and Language
     "settings.language": "Language",
@@ -166,8 +170,12 @@ const translations: Translations = {
     "tryon.modelUploaded": "模特参考图片上传成功",
     "tryon.modelUploadedDesc": "模特参考图片已成功上传",
     "tryon.downloadSuccess": "下载成功",
-    "tryon.downloadSuccessDesc": "图片已成功下载到您的设备",
+    "tryon.downloadSuccessDesc": "图片已保存到您的设备",
     "tryon.originalMaterials": "原图素材",
+    "tryon.waitingForUpload": "等待上传图片",
+    "tryon.uploadPrompt": "请上传珠宝图片和人像图片以生成试戴效果",
+    "tryon.readyToGenerate": "准备就绪",
+    "tryon.clickGenerate": "点击生成按钮开始生成试戴效果",
 
     // Theme and Language
     "settings.language": "语言",

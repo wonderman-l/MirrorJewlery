@@ -93,9 +93,9 @@ export function ImageUploader({ onImageUploaded, currentImage, aspectRatio = "sq
           onClick={() => fileInputRef.current?.click()}
         >
           <input type="file" ref={fileInputRef} onChange={handleFileChange} accept="image/*" className="hidden" />
-          <Upload className={cn("h-10 w-10 mb-2", isDragging ? "text-primary" : "text-muted-foreground")} />
-          <p className="text-sm font-medium">{isUploading ? t("tryon.generating") : t("tryon.dragDrop")}</p>
-          <p className="text-xs text-muted-foreground mt-1">{t("tryon.fileTypes")}</p>
+          <Upload className={cn("h-4 w-4 md:h-7 md:w-7 mb-1", isDragging ? "text-primary" : "text-muted-foreground")} />
+          <p className="text-xs md:text-xs font-medium text-center">{isUploading ? t("tryon.generating") : t("tryon.dragDrop")}</p>
+          <p className="text-[7px] md:text-xs text-muted-foreground mt-1 text-center">{t("tryon.fileTypes")}</p>
         </div>
       ) : (
         <div className={cn(aspectRatioClass, "relative w-full rounded-lg overflow-hidden border shadow-md")}>

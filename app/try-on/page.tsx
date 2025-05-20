@@ -215,244 +215,122 @@ export default function TryOnPage() {
           </Alert>
 
           {/* 上传区域 */}
-          <div className="space-y-6">
-            {/* 珠宝图片上传 */}
-            <Card className="overflow-hidden shadow-md">
-              <div className="h-1.5 bg-primary"></div>
-              <CardHeader className="bg-muted/30 py-3">
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-2">
-                    <div className="rounded-full bg-primary/10 p-1.5">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="20"
-                        height="20"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        className="h-4 w-4 text-primary"
-                      >
-                        <path d="M15 2H9a1 1 0 0 0-1 1v2c0 .6.4 1 1 1h6c.6 0 1-.4 1-1V3c0-.6-.4-1-1-1Z" />
-                        <path d="m12 15 3-3-3-3-3 3 3 3Z" />
-                        <path d="M11.95 15.05 9.1 17.9c-.9.9-2.4.9-3.3 0l-.8-.8c-.9-.9-.9-2.4 0-3.3l2.85-2.85" />
-                        <path d="M12.05 15.05 14.9 17.9c.9.9 2.4.9 3.3 0l.8-.8c.9-.9.9-2.4 0-3.3l-2.85-2.85" />
-                      </svg>
+          <div className="h-[calc(150vh-20rem)] border rounded-lg shadow-md">
+            <div className="h-1.5 bg-primary"></div>
+            <div className="h-10 bg-muted/30 border-b flex items-center px-4">
+              <h2 className="text-base font-medium">{t("tryon.originalMaterials")}</h2>
+            </div>
+            <div className="h-[calc(100%-2.5rem)] grid grid-rows-3 gap-4 p-4">
+              {/* 珠宝图片上传 */}
+              <Card className="flex flex-col min-h-0 overflow-hidden shadow-md">
+                <CardHeader className="bg-muted/30 py-2 shrink-0">
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-2">
+                      <div className="rounded-full bg-primary/10 p-1.5">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-4 w-4 text-primary">
+                          <path d="M15 2H9a1 1 0 0 0-1 1v2c0 .6.4 1 1 1h6c.6 0 1-.4 1-1V3c0-.6-.4-1-1-1Z" />
+                          <path d="m12 15 3-3-3-3-3 3 3 3Z" />
+                          <path d="M11.95 15.05 9.1 17.9c-.9.9-2.4.9-3.3 0l-.8-.8c-.9-.9-.9-2.4 0-3.3l2.85-2.85" />
+                          <path d="M12.05 15.05 14.9 17.9c.9.9 2.4.9 3.3 0l.8-.8c.9-.9.9-2.4 0-3.3l-2.85-2.85" />
+                        </svg>
+                      </div>
+                      <CardTitle className="text-base">{t("tryon.uploadJewelry")}</CardTitle>
                     </div>
-                    <CardTitle className="text-base">{t("tryon.uploadJewelry")}</CardTitle>
+                    <Button variant="outline" size="sm" onClick={() => handleReset('jewelry')} disabled={jewelryImages.length === 0}>{t("tryon.clearAll")}</Button>
                   </div>
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    onClick={() => handleReset('jewelry')}
-                    disabled={jewelryImages.length === 0}
-                  >
-                    {t("tryon.clearAll")}
-                  </Button>
-                </div>
-              </CardHeader>
-              <CardContent className="p-4">
-                <div className="space-y-4">
-                  <p className="text-sm text-muted-foreground">{t("tryon.uploadJewelryDesc")}</p>
-                  <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+                </CardHeader>
+                <CardContent className="flex-1 min-h-0 flex flex-col p-2 overflow-auto">
+                  <p className="text-xs text-muted-foreground mb-1">{t("tryon.uploadJewelryDesc")}</p>
+                  <div className="flex-1 flex items-center justify-center gap-2 flex-wrap">
                     {jewelryImages.map((image, index) => (
-                      <div key={index} className="relative group">
-                        <div className="aspect-square rounded-md border overflow-hidden">
-                          <Image
-                            src={image}
-                            width={200}
-                            height={200}
-                            alt={`Jewelry ${index + 1}`}
-                            className="h-full w-full object-cover"
-                          />
+                      <div key={index} className="relative group h-full max-h-[120px] max-w-[120px] w-full flex-1">
+                        <div className="rounded-md border overflow-hidden h-full w-full">
+                          <Image src={image} width={120} height={120} alt={`Jewelry ${index + 1}`} className="h-full w-full object-cover" />
                         </div>
-                        <Button
-                          variant="destructive"
-                          size="icon"
-                          className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity"
-                          onClick={() => handleJewelryRemove(index)}
-                        >
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="24"
-                            height="24"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            strokeWidth="2"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            className="h-4 w-4"
-                          >
-                            <path d="M18 6 6 18" />
-                            <path d="m6 6 12 12" />
-                          </svg>
+                        <Button variant="destructive" size="icon" className="absolute top-1 right-1 opacity-0 group-hover:opacity-100 transition-opacity" onClick={() => handleJewelryRemove(index)}>
+                          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-4 w-4"><path d="M18 6 6 18" /><path d="m6 6 12 12" /></svg>
                         </Button>
                       </div>
                     ))}
-                    <div className="aspect-square">
-                      <ImageUploader
-                        onImageUploaded={handleJewelryUpload}
-                        aspectRatio="square"
-                      />
+                    <div className="h-full max-h-[120px] max-w-[120px] w-full flex-1 flex items-center justify-center">
+                      <ImageUploader onImageUploaded={handleJewelryUpload} aspectRatio="square" />
                     </div>
                   </div>
-                </div>
-              </CardContent>
-            </Card>
+                </CardContent>
+              </Card>
 
-            {/* 人像图片上传 */}
-            <Card className="overflow-hidden shadow-md">
-              <div className="h-1.5 bg-primary"></div>
-              <CardHeader className="bg-muted/30 py-3">
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-2">
-                    <div className="rounded-full bg-primary/10 p-1.5">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="20"
-                        height="20"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        className="h-4 w-4 text-primary"
-                      >
-                        <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" />
-                        <circle cx="12" cy="7" r="4" />
-                      </svg>
+              {/* 人像图片上传 */}
+              <Card className="flex flex-col min-h-0 overflow-hidden shadow-md">
+                <CardHeader className="bg-muted/30 py-2 shrink-0">
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-2">
+                      <div className="rounded-full bg-primary/10 p-1.5">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-4 w-4 text-primary">
+                          <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" />
+                          <circle cx="12" cy="7" r="4" />
+                        </svg>
+                      </div>
+                      <CardTitle className="text-base">{t("tryon.uploadFace")}</CardTitle>
                     </div>
-                    <CardTitle className="text-base">{t("tryon.uploadFace")}</CardTitle>
+                    <Button variant="outline" size="sm" onClick={() => handleReset('face')} disabled={!faceImage}>{t("tryon.clearAll")}</Button>
                   </div>
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    onClick={() => handleReset('face')}
-                    disabled={!faceImage}
-                  >
-                    {t("tryon.clearAll")}
-                  </Button>
-                </div>
-              </CardHeader>
-              <CardContent className="p-4">
-                <div className="space-y-2">
-                  <p className="text-sm text-muted-foreground">{t("tryon.uploadFaceDesc")}</p>
-                  <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+                </CardHeader>
+                <CardContent className="flex-1 min-h-0 flex flex-col p-2 overflow-auto">
+                  <p className="text-xs text-muted-foreground mb-1">{t("tryon.uploadFaceDesc")}</p>
+                  <div className="flex-1 flex items-center justify-center">
                     {faceImage ? (
-                      <div className="relative group">
-                        <div className="aspect-[3/4] rounded-md border overflow-hidden">
-                          <Image
-                            src={faceImage}
-                            width={200}
-                            height={200}
-                            alt="Your face"
-                            className="h-full w-full object-cover"
-                          />
+                      <div className="relative group h-full max-h-[120px] max-w-[120px] w-full flex-1">
+                        <div className="rounded-md border overflow-hidden h-full w-full">
+                          <Image src={faceImage} width={120} height={120} alt="Your face" className="h-full w-full object-cover" />
                         </div>
                       </div>
                     ) : (
-                      <div className="aspect-square">
-                        <ImageUploader
-                          onImageUploaded={handleFaceUpload}
-                          aspectRatio="square"
-                        />
+                      <div className="h-full max-h-[120px] max-w-[120px] w-full flex-1 flex items-center justify-center">
+                        <ImageUploader onImageUploaded={handleFaceUpload} aspectRatio="square" />
                       </div>
                     )}
                   </div>
-                </div>
-              </CardContent>
-            </Card>
+                </CardContent>
+              </Card>
 
-            {/* 模特参考图片上传 */}
-            <Card className="overflow-hidden shadow-md">
-              <div className="h-1.5 bg-primary"></div>
-              <CardHeader className="bg-muted/30 py-3">
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-2">
-                    <div className="rounded-full bg-primary/10 p-1.5">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="20"
-                        height="20"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        className="h-4 w-4 text-primary"
-                      >
-                        <path d="M21 9V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v3" />
-                        <path d="M3 16v3a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-3" />
-                        <path d="M12 6v12" />
-                        <path d="M3 12h18" />
-                      </svg>
+              {/* 模特参考图片上传 */}
+              <Card className="flex flex-col min-h-0 overflow-hidden shadow-md">
+                <CardHeader className="bg-muted/30 py-2 shrink-0">
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-2">
+                      <div className="rounded-full bg-primary/10 p-1.5">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-4 w-4 text-primary">
+                          <path d="M21 9V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v3" />
+                          <path d="M3 16v3a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-3" />
+                          <path d="M12 6v12" />
+                          <path d="M3 12h18" />
+                        </svg>
+                      </div>
+                      <CardTitle className="text-base">{t("tryon.uploadModel")}</CardTitle>
                     </div>
-                    <CardTitle className="text-base">{t("tryon.uploadModel")}</CardTitle>
+                    <Button variant="outline" size="sm" onClick={() => handleReset('model')} disabled={modelImages.length === 0}>{t("tryon.clearAll")}</Button>
                   </div>
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    onClick={() => handleReset('model')}
-                    disabled={modelImages.length === 0}
-                  >
-                    {t("tryon.clearAll")}
-                  </Button>
-                </div>
-              </CardHeader>
-              <CardContent className="p-4">
-                <div className="space-y-4">
-                  <p className="text-sm text-muted-foreground">{t("tryon.uploadModelDesc")}</p>
-                  <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+                </CardHeader>
+                <CardContent className="flex-1 min-h-0 flex flex-col p-2 overflow-auto">
+                  <p className="text-xs text-muted-foreground mb-1">{t("tryon.uploadModelDesc")}</p>
+                  <div className="flex-1 flex items-center justify-center gap-2 flex-wrap">
                     {modelImages.map((image, index) => (
-                      <div key={index} className="relative group">
-                        <div className="aspect-square rounded-md border overflow-hidden">
-                          <Image
-                            src={image}
-                            width={200}
-                            height={200}
-                            alt={`Model ${index + 1}`}
-                            className="h-full w-full object-cover"
-                          />
+                      <div key={index} className="relative group h-full max-h-[120px] max-w-[120px] w-full flex-1">
+                        <div className="rounded-md border overflow-hidden h-full w-full">
+                          <Image src={image} width={120} height={120} alt={`Model ${index + 1}`} className="h-full w-full object-cover" />
                         </div>
-                        <Button
-                          variant="destructive"
-                          size="icon"
-                          className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity"
-                          onClick={() => handleModelRemove(index)}
-                        >
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="24"
-                            height="24"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            strokeWidth="2"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            className="h-4 w-4"
-                          >
-                            <path d="M18 6 6 18" />
-                            <path d="m6 6 12 12" />
-                          </svg>
+                        <Button variant="destructive" size="icon" className="absolute top-1 right-1 opacity-0 group-hover:opacity-100 transition-opacity" onClick={() => handleModelRemove(index)}>
+                          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-4 w-4"><path d="M18 6 6 18" /><path d="m6 6 12 12" /></svg>
                         </Button>
                       </div>
                     ))}
-                    <div className="aspect-square">
-                      <ImageUploader
-                        onImageUploaded={handleModelUpload}
-                        aspectRatio="square"
-                      />
+                    <div className="h-full max-h-[120px] max-w-[120px] w-full flex-1 flex items-center justify-center">
+                      <ImageUploader onImageUploaded={handleModelUpload} aspectRatio="square" />
                     </div>
                   </div>
-                </div>
-              </CardContent>
-            </Card>
+                </CardContent>
+              </Card>
+            </div>
           </div>
 
           {/* 操作按钮 */}

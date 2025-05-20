@@ -7,14 +7,16 @@ import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Upload, X } from "lucide-react"
 import { useLanguage } from "@/contexts/language-context"
+import { cn } from "@/lib/utils"
 
 interface ImageUploaderProps {
   onImageUploaded: (imageUrl: string) => void
-  currentImage: string | null
+  currentImage?: string | null
   aspectRatio?: "square" | "portrait" | "landscape"
+  className?: string
 }
 
-export function ImageUploader({ onImageUploaded, currentImage, aspectRatio = "square" }: ImageUploaderProps) {
+export function ImageUploader({ onImageUploaded, currentImage, aspectRatio = "square", className }: ImageUploaderProps) {
   const { t } = useLanguage()
   const [isDragging, setIsDragging] = useState(false)
   const [isUploading, setIsUploading] = useState(false)
@@ -76,24 +78,27 @@ export function ImageUploader({ onImageUploaded, currentImage, aspectRatio = "sq
   }
 
   return (
-    <div className="w-full">
+    <div className={cn("w-full", className)}>
       {!currentImage ? (
         <div
-          className={`${aspectRatioClass} w-full border-2 border-dashed rounded-lg ${
-            isDragging ? "border-primary bg-primary/10" : "border-border"
-          } flex flex-col items-center justify-center cursor-pointer transition-all duration-300 hover:border-primary hover:bg-primary/5`}
+          className={cn(
+            aspectRatioClass,
+            "w-full border-2 border-dashed rounded-lg",
+            isDragging ? "border-primary bg-primary/10" : "border-border",
+            "flex flex-col items-center justify-center cursor-pointer transition-all duration-300 hover:border-primary hover:bg-primary/5"
+          )}
           onDragOver={handleDragOver}
           onDragLeave={handleDragLeave}
           onDrop={handleDrop}
           onClick={() => fileInputRef.current?.click()}
         >
           <input type="file" ref={fileInputRef} onChange={handleFileChange} accept="image/*" className="hidden" />
-          <Upload className={`h-10 w-10 ${isDragging ? "text-primary" : "text-muted-foreground"} mb-2`} />
+          <Upload className={cn("h-10 w-10 mb-2", isDragging ? "text-primary" : "text-muted-foreground")} />
           <p className="text-sm font-medium">{isUploading ? t("tryon.generating") : t("tryon.dragDrop")}</p>
           <p className="text-xs text-muted-foreground mt-1">{t("tryon.fileTypes")}</p>
         </div>
       ) : (
-        <div className={`${aspectRatioClass} relative w-full rounded-lg overflow-hidden border shadow-md`}>
+        <div className={cn(aspectRatioClass, "relative w-full rounded-lg overflow-hidden border shadow-md")}>
           <Image src={currentImage || "/placeholder.svg"} alt="Uploaded image" fill className="object-cover" />
           <Button
             variant="destructive"
